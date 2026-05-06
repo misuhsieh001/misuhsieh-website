@@ -1,20 +1,18 @@
 ---
-// src/components/Navbar.astro
-
-// 1. 取得目前的網址路徑 (例如: /syllabus 或 /en/syllabus)
+// 1. 取得目前的網址路徑
 const { pathname } = Astro.url;
 
-// 2. 判斷現在是不是在英文版頁面
-const isEnglish = pathname.startsWith('/en');
+// 2. 判斷現在是不是在中文版頁面 (因為現在英文是預設了)
+const isChinese = pathname.startsWith('/zh-tw');
 
 // 3. 計算切換按鈕的目標網址
 let toggleUrl = '/';
-if (isEnglish) {
-  // 如果在英文版，就把 /en 拿掉回到中文版
-  toggleUrl = pathname.replace(/^\/en\/?/, '/') || '/';
+if (isChinese) {
+  // 如果在中文版，就把 /zh-tw 拿掉回到英文版 (預設)
+  toggleUrl = pathname.replace(/^\/zh-tw\/?/, '/') || '/';
 } else {
-  // 如果在中文版，就在前面加上 /en
-  toggleUrl = `/en${pathname === '/' ? '' : pathname}`;
+  // 如果在英文版 (預設)，就在前面加上 /zh-tw
+  toggleUrl = `/zh-tw${pathname === '/' ? '' : pathname}`;
 }
 ---
 
@@ -22,32 +20,32 @@ if (isEnglish) {
   <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
     <div class="flex items-center gap-2">
       <span class="text-2xl">📡</span>
-      <a href={isEnglish ? "/en" : "/"} class="text-white font-bold text-lg tracking-tight">
+      <a href={isChinese ? "/zh-tw" : "/"} class="text-white font-bold text-lg tracking-tight">
         CSIE <span class="text-cyan-400">5411</span>
       </a>
     </div>
 
     <ul class="flex gap-8 text-sm font-medium text-slate-300">
       <li>
-        <a href={isEnglish ? "/en" : "/"} class="hover:text-cyan-400 transition-colors">
-          {isEnglish ? "Home" : "首頁"}
+        <a href={isChinese ? "/zh-tw" : "/"} class="hover:text-cyan-400 transition-colors">
+          {isChinese ? "首頁" : "Home"}
         </a>
       </li>
       <li>
-        <a href={isEnglish ? "/en/syllabus" : "/syllabus"} class="hover:text-cyan-400 transition-colors">
-          {isEnglish ? "Syllabus" : "課程大綱"}
+        <a href={isChinese ? "/zh-tw/syllabus" : "/syllabus"} class="hover:text-cyan-400 transition-colors">
+          {isChinese ? "課程大綱" : "Syllabus"}
         </a>
       </li>
       <li>
-        <a href={isEnglish ? "/en/labs" : "/labs"} class="hover:text-cyan-400 transition-colors">
-          {isEnglish ? "Labs" : "實驗教學"}
+        <a href={isChinese ? "/zh-tw/labs" : "/labs"} class="hover:text-cyan-400 transition-colors">
+          {isChinese ? "實驗教學" : "Labs"}
         </a>
       </li>
     </ul>
 
     <div class="flex items-center gap-4">
       <a href={toggleUrl} class="px-3 py-1.5 bg-slate-800 text-slate-300 border border-slate-600 rounded-md text-xs hover:bg-slate-700 hover:text-white transition-colors flex items-center gap-1">
-        <span>🌐</span> {isEnglish ? '繁體中文' : 'English'}
+        <span>🌐</span> {isChinese ? '繁體中文' : 'English'}
       </a>
       
       <a href="https://cool.ntu.edu.tw" target="_blank" class="hidden md:block px-4 py-1.5 bg-cyan-900/50 text-cyan-400 border border-cyan-500/50 rounded-md text-xs hover:bg-cyan-800 transition-colors">
