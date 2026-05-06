@@ -1,6 +1,8 @@
 ---
 // src/pages/en/syllabus.astro
 import Layout from '../layouts/Layout.astro';
+import { getTermLabel } from '../utils/term';
+const termLabel = getTermLabel();
 
 const schedule = [
   { week: 1, topic: "Course Overview & Introduction to SCCA", category: "Intro" },
@@ -41,7 +43,7 @@ const getCategoryStyle = (category) => {
     <div class="max-w-4xl mx-auto">
       
       <div class="mb-12 text-center">
-        <h1 class="text-4xl font-extrabold text-white mb-4">114-1 Course Syllabus</h1>
+        <h1 class="text-4xl font-extrabold text-white mb-4">{termLabel} Course Syllabus</h1>
         <p class="text-slate-400">The course is structured into two main parts: (A) Sensing & Communication, (B) Intelligence & Autonomy.</p>
       </div>
 
@@ -60,7 +62,7 @@ const getCategoryStyle = (category) => {
                 <td class="py-4 px-6 text-slate-400 font-mono">W{item.week.toString().padStart(2, '0')}</td>
                 <td class="py-4 px-6 text-white font-medium">{item.topic}</td>
                 <td class="py-4 px-6 text-center">
-                  <span class={`text-[10px] uppercase tracking-tighter px-2 py-1 rounded border ${getCategoryStyle(item.category)}`}>
+                  <span class={`text-[14px] uppercase tracking-tighter px-2 py-1 rounded border ${getCategoryStyle(item.category)}`}>
                     {item.category}
                   </span>
                 </td>

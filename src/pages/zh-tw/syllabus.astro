@@ -1,36 +1,38 @@
 ---
 // src/pages/en/syllabus.astro
 import Layout from '../../layouts/Layout.astro';
+import { getTermLabel } from '../../utils/term';
+const termLabel = getTermLabel();
 
 const schedule = [
-  { week: 1, topic: "Course Overview & Introduction to SCCA", category: "Intro" },
-  { week: 2, topic: "Sensation (1): Wireless Sensing & WiFi CSI", category: "Sensation" },
-  { week: 3, topic: "Sensation (2): Visual Perception & Camera Calibration", category: "Sensation" },
-  { week: 4, topic: "Sensation (3): Acoustic Sensing & Privacy-preserving Tech", category: "Sensation" },
-  { week: 5, topic: "Lab 01: Arduino Sensor Integration (Hands-on)", category: "Lab" },
-  { week: 6, topic: "Communication (1): Advanced IoT Networking & 5G/6G", category: "Communication" },
-  { week: 7, topic: "Communication (2): Low-power Wide-area Network (LPWAN)", category: "Communication" },
-  { week: 8, topic: "Midterm Project Proposal & Discussion", category: "Event" },
-  { week: 9, topic: "Computing (1): Context-aware Computing Foundations", category: "Computing" },
-  { week: 10, topic: "Computing (2): Edge AI & Distributed Intelligence", category: "Computing" },
-  { week: 11, topic: "Computing (3): Serverless Computing for Pervasive Systems", category: "Computing" },
-  { week: 12, topic: "Lab 02: Raspberry Pi & Edge Inference (Hands-on)", category: "Lab" },
-  { week: 13, topic: "Autonomy (1): Robotics Platforms & ROS 2 Basics", category: "Autonomy" },
-  { week: 14, topic: "Autonomy (2): Autonomous Coordination & Swarm Intelligence", category: "Autonomy" },
-  { week: 15, topic: "Autonomy (3): Drone Applications & Navigation", category: "Autonomy" },
-  { week: 16, topic: "Final Project Development & Mentoring", category: "Event" },
-  { week: 17, topic: "Final Demo (Part I): System Presentation", category: "Event" },
-  { week: 18, topic: "Final Demo (Part II): Future Vision & Peer Review", category: "Event" },
+  { week: 1, topic: "課程概述與 SCCA 介紹", category: "介紹" },
+  { week: 2, topic: "感測 (1): 無線感測與 WiFi CSI", category: "感知" },
+  { week: 3, topic: "感測 (2): 視覺感知與相機校正", category: "感知" },
+  { week: 4, topic: "感測 (3): 聲學感測與隱私保護技術", category: "感知" },
+  { week: 5, topic: "實驗 01: Arduino 感測器整合 (實作)", category: "實作" },
+  { week: 6, topic: "通訊 (1): 先進 IoT 網路與 5G/6G", category: "通訊" },
+  { week: 7, topic: "通訊 (2): 低功耗廣域網路 (LPWAN)", category: "通訊" },
+  { week: 8, topic: "期中專案提案與討論", category: "專案" },
+  { week: 9, topic: "計算 (1): 上下文感知計算基礎", category: "計算" },
+  { week: 10, topic: "計算 (2): 邊緣 AI 與分散式智慧", category: "計算" },
+  { week: 11, topic: "計算 (3): 無伺服器計算於泛在系統", category: "計算" },
+  { week: 12, topic: "實驗 02: Raspberry Pi 與邊緣推論 (實作)", category: "實作" },
+  { week: 13, topic: "自主 (1): 機器人平台與 ROS 2 基礎", category: "自主" },
+  { week: 14, topic: "自主 (2): 自主協調與群體智慧", category: "自主" },
+  { week: 15, topic: "自主 (3): 無人機應用與導航", category: "自主" },
+  { week: 16, topic: "期末專案開發與指導", category: "專案" },
+  { week: 17, topic: "期末展示 (第一部分): 系統展示", category: "專案" },
+  { week: 18, topic: "期末展示 (第二部分): 未來展望與同儕評審", category: "專案" },
 ];
 
 const getCategoryStyle = (category) => {
   switch (category) {
-    case "Sensation": return "bg-cyan-900/50 text-cyan-400 border-cyan-500/50";
-    case "Communication": return "bg-blue-900/50 text-blue-400 border-blue-500/50";
-    case "Computing": return "bg-indigo-900/50 text-indigo-400 border-indigo-500/50";
-    case "Autonomy": return "bg-purple-900/50 text-purple-400 border-purple-500/50";
-    case "Lab": return "bg-emerald-900/50 text-emerald-400 border-emerald-500/50";
-    case "Event": return "bg-rose-900/50 text-rose-400 border-rose-500/50";
+    case "介紹": return "bg-cyan-900/50 text-cyan-400 border-cyan-500/50";
+    case "感知": return "bg-blue-900/50 text-blue-400 border-blue-500/50";
+    case "通訊": return "bg-indigo-900/50 text-indigo-400 border-indigo-500/50";
+    case "計算": return "bg-purple-900/50 text-purple-400 border-purple-500/50";
+    case "自主": return "bg-emerald-900/50 text-emerald-400 border-emerald-500/50";
+    case "專案": return "bg-rose-900/50 text-rose-400 border-rose-500/50";
     default: return "bg-slate-800 text-slate-400 border-slate-700";
   }
 };
@@ -41,8 +43,8 @@ const getCategoryStyle = (category) => {
     <div class="max-w-4xl mx-auto">
       
       <div class="mb-12 text-center">
-        <h1 class="text-4xl font-extrabold text-white mb-4">114-1 Course Syllabus</h1>
-        <p class="text-slate-400">The course is structured into two main parts: (A) Sensing & Communication, (B) Intelligence & Autonomy.</p>
+        <h1 class="text-4xl font-extrabold text-white mb-4">{termLabel} 課程大綱</h1>
+        <p class="text-slate-400">本課程分為兩個主要部分：(A) 感知與通訊，(B) 智能與自主。</p>
       </div>
 
       <div class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden backdrop-blur-sm">
@@ -60,7 +62,7 @@ const getCategoryStyle = (category) => {
                 <td class="py-4 px-6 text-slate-400 font-mono">W{item.week.toString().padStart(2, '0')}</td>
                 <td class="py-4 px-6 text-white font-medium">{item.topic}</td>
                 <td class="py-4 px-6 text-center">
-                  <span class={`text-[10px] uppercase tracking-tighter px-2 py-1 rounded border ${getCategoryStyle(item.category)}`}>
+                  <span class={`text-[14px] uppercase tracking-tighter px-2 py-1 rounded border ${getCategoryStyle(item.category)}`}>
                     {item.category}
                   </span>
                 </td>
@@ -71,11 +73,11 @@ const getCategoryStyle = (category) => {
       </div>
 
       <div class="mt-12 p-6 bg-slate-800/30 border-l-4 border-cyan-500 rounded-r-xl">
-        <h3 class="text-white font-bold mb-2">💡 TA Notes</h3>
+        <h3 class="text-white font-bold mb-2">💡 TA 筆記</h3>
         <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside">
-          <li>Course schedule is subject to minor adjustments based on student progress.</li>
-          <li>For Lab sessions, please bring your own laptop with required environments pre-installed.</li>
-          <li>Final Projects are encouraged to integrate multiple SCCA modules.</li>
+          <li>課堂內容將根據學生進度進行小幅調整。</li>
+          <li>實驗課請攜帶自己的筆電，並預先安裝所需的環境。</li>
+          <li>期末專案鼓勵整合多個 SCCA 模組。</li>
         </ul>
       </div>
 
