@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MyCard from '../components/MyCard.astro'; // 1. 引入你的積木
 ---
 
 <Layout>
-	<Welcome />
+    <main style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+        <h1>我的專案與研究 🚀</h1>
+        
+        <MyCard 
+            title="NTU CSIE 研究專案" 
+            description="這是我在台大資工系參與的 Vision-Language Models 研究項目。" 
+        />
+        
+        <MyCard 
+            title="自動駕駛系統開發" 
+            description="使用 ROS 2 與 Autoware 框架開發的移動機器人感測系統。" 
+        />
+
+        <MyCard 
+            title="個人部落格" 
+            description="分享關於 Pervasive Intelligence 與無線感測的技術筆記。" 
+        />
+    </main>
 </Layout>

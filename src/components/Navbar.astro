@@ -1,0 +1,43 @@
+---
+// 導覽列不需要外部傳入資料，所以上面可以留白
+---
+
+<nav class="navbar">
+  <div class="logo">🚀 Min-Hsiu 的空間</div>
+  <ul class="nav-links">
+    <li><a href="/">首頁</a></li>
+    <li><a href="/about">關於我</a></li>
+    <li><a href="/projects">研究專案</a></li>
+  </ul>
+</nav>
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1a202c; /* 深色背景 */
+    color: white;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: #63b3ed; /* 滑鼠移過去變成淺藍色 */
+  }
+</style>

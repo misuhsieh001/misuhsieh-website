@@ -1,0 +1,31 @@
+---
+// 這裡可以定義「外部傳進來的資料」（稱為 Props）
+const { title, description } = Astro.props;
+---
+
+<div class="card">
+  <h2>{title}</h2>
+  <p>{description}</p>
+</div>
+
+<style>
+  .card {
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    margin-bottom: 1rem;
+    transition: transform 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+  }
+  h2 {
+    margin-top: 0;
+    color: #1a202c;
+  }
+  p {
+    color: #4a5568;
+  }
+</style>
