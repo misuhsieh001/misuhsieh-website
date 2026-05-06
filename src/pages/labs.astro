@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+---
+
+<Layout title="實驗教學資源 | 行動與普適智慧">
+  <main class="min-h-screen bg-slate-900 py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="mb-16">
+        <h1 class="text-4xl font-extrabold text-white mb-4">實驗教學與資源</h1>
+        <p class="text-slate-400">這裡提供去年與本學期使用的硬體開發教材，包含 Arduino 與 Raspberry Pi 的基礎實作指南。</p>
+      </div>
+
+      <section class="mb-20">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="h-px flex-1 bg-slate-800"></div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-blue-400">♾️</span> Arduino Uno 基礎
+          </h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ResourceCard 
+            type="pdf"
+            title="Lab 01: 環境與數位輸出"
+            description="Arduino IDE 安裝、GPIO 基本概念與 LED 閃爍控制。"
+            link="#"
+          />
+          <ResourceCard 
+            type="pdf"
+            title="Lab 02: 感測器讀取"
+            description="使用超音波感測器 (HC-SR04) 與 DHT11 溫濕度計讀取環境資訊。"
+            link="#"
+          />
+          <ResourceCard 
+            type="code"
+            title="Sample Code: UART 通訊"
+            description="透過序列埠傳輸感測資料至電腦端的 Python 腳本範例。"
+            link="#"
+          />
+        </div>
+      </section>
+
+      <section>
+        <div class="flex items-center gap-4 mb-8">
+          <div class="h-px flex-1 bg-slate-800"></div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-red-500">🍓</span> Raspberry Pi 4 / 5 進階
+          </h2>
+          <div class="h-px flex-1 bg-slate-800"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ResourceCard 
+            type="pdf"
+            title="Lab 03: Linux 系統與 GPIO"
+            description="Raspberry Pi OS 燒錄、SSH 連線與 RPi.GPIO 函式庫使用。"
+            link="#"
+          />
+          <ResourceCard 
+            type="code"
+            title="OpenCV 影像處理基礎"
+            description="在 Pi 4 上使用 Python 進行即時影像串流與色彩偵測。"
+            link="#"
+          />
+          <ResourceCard 
+            type="pdf"
+            title="AWS S3 雲端整合"
+            description="教學如何將擷取的影像資料自動上傳至 AWS S3 儲存空間。"
+            link="#"
+          />
+        </div>
+      </section>
+
+    </div>
+  </main>
+</Layout>

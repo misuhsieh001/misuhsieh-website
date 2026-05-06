@@ -1,43 +1,27 @@
 ---
-// 導覽列不需要外部傳入資料，所以上面可以留白
+// src/components/Navbar.astro
 ---
 
-<nav class="navbar">
-  <div class="logo">🚀 Min-Hsiu 的空間</div>
-  <ul class="nav-links">
-    <li><a href="/">首頁</a></li>
-    <li><a href="/about">關於我</a></li>
-    <li><a href="/projects">研究專案</a></li>
-  </ul>
+<nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">📡</span>
+      <a href="/" class="text-white font-bold text-lg tracking-tight">
+        CSIE <span class="text-cyan-400">5411</span>
+      </a>
+    </div>
+
+    <ul class="flex gap-8 text-sm font-medium text-slate-300">
+      <li><a href="/" class="hover:text-cyan-400 transition-colors">首頁</a></li>
+      <li><a href="/syllabus" class="hover:text-cyan-400 transition-colors">課程大綱</a></li>
+      <li><a href="/labs" class="hover:text-cyan-400 transition-colors text-cyan-400">實驗教學</a></li>
+      <li><a href="/gallery" class="hover:text-cyan-400 transition-colors">成果展示</a></li>
+    </ul>
+
+    <a href="https://cool.ntu.edu.tw" target="_blank" class="hidden md:block px-4 py-1.5 bg-slate-800 text-slate-300 border border-slate-700 rounded-md text-xs hover:bg-slate-700 transition-colors">
+      NTU COOL
+    </a>
+  </div>
 </nav>
 
-<style>
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #1a202c; /* 深色背景 */
-    color: white;
-  }
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-  }
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover {
-    color: #63b3ed; /* 滑鼠移過去變成淺藍色 */
-  }
-</style>
+<div class="h-16"></div>

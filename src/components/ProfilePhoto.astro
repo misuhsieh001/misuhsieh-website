@@ -1,0 +1,26 @@
+---
+// ProfilePhoto 元件不需要外部傳入資料，所以這裡可以留白
+---
+
+<div class="profile-container">
+  <img src="/profile.jpg" alt="Vincent Hsieh 的頭像" />
+</div>
+
+<style>
+  .profile-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    padding: 2rem 0;        /* 增加上下間距 */
+  }
+
+  img {
+    /* 這裡可以控制大小，讓它看起來合理 */
+    width: 200px;           /* 設定合理的寬度 */
+    height: 200px;          /* 設定高度，確保是正方形 */
+    object-fit: cover;      /* 確保圖片不變形，填滿這個圓形 */
+    
+    border-radius: 50%;     /* 變成完美的圓形 */
+    border: 4px solid white; /* 加一個白色的邊框 */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 加一點淡淡的陰影增加質感 */
+  }
+</style>

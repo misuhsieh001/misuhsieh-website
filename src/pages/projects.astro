@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MyCard from '../components/MyCard.astro';
+---
+
+<Layout title="研究專案 - Min-Hsiu">
+  <main class="min-h-screen bg-slate-900 py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-white mb-4 tracking-tight">精選研究與專案</h1>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+          這裡紀錄了我在邊緣運算推論、機器人系統開發以及物聯網硬體整合的實作經驗與研究成果。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <MyCard
+          title="VLM 邊緣設備推論最佳化"
+          description="在 NVIDIA Jetson AGX Orin 上部署視覺語言模型 (VLM)，針對低位元計算與 CLIP Encoders 進行邊緣端效能分析。"
+        />
+        
+        <MyCard
+          title="Raspberry Pi 5 雲端測速照相"
+          description="使用 8GB 版本的 Pi 5 結合 PiCamera2 開發。具備影像擷取、時間戳記寫入功能，並能自動將影像與對應 QR Code 上傳至 AWS S3。"
+        />
+
+        <MyCard
+          title="Techman 機器手臂視覺整合"
+          description="進行 TM5-900 的相機內外參 OpenCV 校正。整合 TMflow Offline Simulator 取代傳統 Gazebo，進行電腦視覺與機器人互動應用開發。"
+        />
+
+        <MyCard
+          title="AutoSDV 自動駕駛系統整合"
+          description="建立容器化的開發與測試平台，處理 Docker multi-platform builds，並整合硬體驅動與 Autoware 框架。"
+        />
+        
+      </div>
+      
+    </div>
+  </main>
+</Layout>
